@@ -1,0 +1,88 @@
+body,
+html {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+        "Helvetica Neue", sans-serif;
+    text-align: center;
+}
+
+.title,
+.course {
+    opacity: 0;
+}
+
+.title {
+    width: 100%;
+    background-color: #9b2236;
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+}
+
+.program {
+    padding: 30px;
+}
+
+.course {
+    padding: 15px;
+    margin: 10px auto;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.75px;
+}
+
+#mcda5510 {
+    background-color: #264653;
+}
+
+#mcda5520 {
+    background-color: #287271;
+}
+
+#mcda5530 {
+    background-color: #2a9d8f;
+}
+
+#mcda5540 {
+    background-color: #8ab17d;
+}
+
+#mcda5550 {
+    background-color: #e9c46a;
+    color: black;
+}
+
+#mcda5560 {
+    background-color: #efb366;
+    color: black;
+}
+
+#mcda5570 {
+    background-color: #f4a261;
+    color: black;
+}
+
+#mcda5580 {
+    background-color: #ee8959;
+    color: black;
+}
+
+#applied {
+    background-color: #e76f51;
+}
+
+.animate-in {
+    animation: fade 1.5s forwards;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
