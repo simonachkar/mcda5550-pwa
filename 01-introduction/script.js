@@ -1,7 +1,22 @@
 var title = document.querySelector('.title');
 var courseElements = document.querySelectorAll('.course');
 
-// navigator.serviceWorker.register('/sw.js');
+/**
+ * 
+ * This code checks to see if the service worker API is available.
+ * If yes, we register the service worker at /sw.js once the page is loaded.
+ */
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/sw.js').then(function (registration) {
+            // Registration was successful
+            console.log('ServiceWorker registration successful');
+        }, function (err) {
+            // registration failed
+            console.log('ServiceWorker registration failed', err);
+        });
+    });
+}
 
 function animate() {
     title.classList.remove('animate-in');
@@ -16,7 +31,6 @@ function animate() {
 
     setTimeout(function () {
         courseElements[0].classList.add('animate-in');
-        console.log(courseElements[0]);
     }, 1500);
 
     setTimeout(function () {
