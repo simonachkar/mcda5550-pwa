@@ -60,5 +60,8 @@ To make your app supported in safari, you need to add a `<meta>` tag in your HTM
   <!-- ... load all icons like that -->
 ```
 
-
+## Service Workers
+- Only works on `https`, localhost is an exception.
+- `install` event fires whenever a new service worker is installed
+- `activate` event fires when a service worker is activated (to activate a new service worker, you need to close existing tabs)
 

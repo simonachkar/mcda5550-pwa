@@ -21,7 +21,15 @@ self.addEventListener('install', function (event) {
 });
 
 /**
- * Return cached response
+ * Activating the service worker
+ */
+self.addEventListener('activate', function (event) {
+    console.log('Service worker activated', event);
+})
+
+/**
+ * Return cached response. 
+ * Will get triggered whenever the web app fetched something (pages, images, scripts...)
  */
 self.addEventListener('fetch', function (event) {
     event.respondWith(
