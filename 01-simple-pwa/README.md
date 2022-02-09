@@ -50,7 +50,7 @@ You should see your app on your phone like this:
 </div>
 
 ### Safari Support 
-To make your app supported in safari, you need to add a `<meta>` tag in your HTML files. It tells [WebKit](https://webkit.org/) (Safari's browser engine) that we want to run this app in fullsreen, to make it feel like a native app.
+To make your app supported in safari, you need to add a `<meta>` tag in your HTML files. For example, it tells [WebKit](https://webkit.org/) (Safari's browser engine) that we want to run this app in fullsreen, to make it feel like a native app.
 ```html
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="#9900FE">
