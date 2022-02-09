@@ -5,15 +5,15 @@ var courseElements = document.querySelectorAll('.course');
  * 
  * This code checks to see if the service worker API is available.
  * If yes, we register the service worker at /sw.js once the page is loaded.
+ * 
+ * Comment this to disable PWA functionalities
  */
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/sw.js').then(function (registration) {
-            // Registration was successful
-            console.log('ServiceWorker registration successful');
+if ('serviceWorker' in navigator) { // checking if the browser supports service workers
+    window.addEventListener('load', function () { // when app loads, fire callback
+        navigator.serviceWorker.register('/sw.js').then(function () { // register sw
+            console.log('ServiceWorker registration successful');  // registration was successful
         }, function (err) {
-            // registration failed
-            console.log('ServiceWorker registration failed', err);
+            console.log('ServiceWorker registration failed', err); // registration failed
         });
     });
 }
