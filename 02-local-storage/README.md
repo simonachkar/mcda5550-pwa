@@ -14,3 +14,9 @@ This section explores local storage, one way of storing data in a PWA.
 
 ## Furthermore
 Eeach value in the local storage is a string (meaning that non-string values will be stringified).
+
+## Start the app
+To start the app run:
+```
+npm run start
+```

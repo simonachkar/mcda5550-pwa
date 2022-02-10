@@ -67,3 +67,8 @@ To make your app supported in safari, you need to add a `<meta>` tag in your HTM
 - `install` event fires whenever a new service worker is installed
 - `activate` event fires when a service worker is activated (to activate a new service worker, you need to close existing tabs)
 
+## Start the app
+To start the app run:
+```
+npm run start
+```

@@ -9,3 +9,8 @@
 
 In this section we are using a wrapper library called [`Dexie.js`](https://dexie.org/)
 
+## Start the app
+To start the app run:
+```
+npm run start
+```
