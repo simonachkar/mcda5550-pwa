@@ -4,6 +4,8 @@
 - Service worker is javascript code that runs in the background.
 - App manifest is a JSON file that has information about the app.
 
+*You can check the hosted app [here](https://nervous-goldstine-881aae.netlify.app/)!*
+
 ## To run this app
 Run `npm run start` to start the app with [`http-server`](https://github.com/http-party/http-server#readme).  
 
