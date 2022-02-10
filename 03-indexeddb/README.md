@@ -9,8 +9,6 @@
 
 In this section we are using a wrapper library called [`Dexie.js`](https://dexie.org/)
 
-## Start the app
-To start the app run:
-```
-npm run start
-```
+## To run this app
+- Run `npm i` or `npm install` to install the node dev dependencies (http-server to run the app on a development server).
+- Run `npm run start` to start the app with [`http-server`](https://github.com/http-party/http-server#readme). 

@@ -7,7 +7,8 @@
 *You can check the hosted app [here](https://nervous-goldstine-881aae.netlify.app/)!*
 
 ## To run this app
-Run `npm run start` to start the app with [`http-server`](https://github.com/http-party/http-server#readme). 
+- Run `npm i` or `npm install` to install the node dev dependencies (http-server to run the app on a development server).
+- Run `npm run start` to start the app with [`http-server`](https://github.com/http-party/http-server#readme). 
 
 ## Directions
 The `finished/` directory has the finished PWA with all the enhancements.
