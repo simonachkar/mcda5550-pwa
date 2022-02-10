@@ -7,7 +7,19 @@
 *You can check the hosted app [here](https://nervous-goldstine-881aae.netlify.app/)!*
 
 ## To run this app
-Run `npm run start` to start the app with [`http-server`](https://github.com/http-party/http-server#readme).  
+Run `npm run start` to start the app with [`http-server`](https://github.com/http-party/http-server#readme). 
+
+## Directories
+The `finished/` directory has the finished PWA with all the enhancements.
+
+The `start/` directory has the app code minus the PWA code.
+
+Tho make `start/` a PWA, follow these steps: 
+- Add service workers `sw.js`
+- Register the service worker in `script.js`
+- Add the manifest file `manifest.json`
+- Add icons 
+- Add html tags to make app more enhanced
 
 ## Manifest 
 App manifest makes your Web App installable, thus a **Progressive** Web App. Normally this file is named `manifest.json`.
