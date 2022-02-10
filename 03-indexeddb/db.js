@@ -9,41 +9,29 @@ db.version(1).stores({
         city`,
 });
 
-// Adding some values
-db.friends.bulkPut([
-    { id: 1, name: "Josephine", age: 21 },
-    { id: 2, name: "Per", age: 75 },
-    { id: 3, name: "Simon", age: 5 },
-    { id: 4, name: "Sara", age: 50, notIndexedProperty: 'foo' }
-]).then(() => {
+function getAllStudentsFromDB() {
+    return db.students.toArray().then((data) => {
+        return data
+    })
 
-    return db.friends.where("age").between(0, 25).toArray();
+}
 
-}).then(friends => {
+function addStudentToDB(name, id, city) {
+    db.students.put({ id, name, city })
+        .then(() => true)
+        .catch(err => {
+            alert("Ouch... " + err);
+        });
+}
 
-    alert("Found young friends: " +
-        friends.map(friend => friend.name));
+async function queryByName(name) {
+    if (name === undefined) return 0
+    return await db.students
+        .filter((student) => {
+            return student.name === name
+        })
+        .toArray()
+}
 
-    return db.friends
-        .orderBy("age")
-        .reverse()
-        .toArray();
-
-}).then(friends => {
-
-    alert("Friends in reverse age order: " +
-        friends.map(friend => `${friend.name} ${friend.age}`));
-
-    return db.friends.where('name').startsWith("S").keys();
-
-}).then(friendNames => {
-
-    alert("Friends on 'S': " + friendNames);
-
-}).catch(err => {
-
-    alert("Ouch... " + err);
-
-});
 
 // Ref -> https://dexie.org/docs/Tutorial/Hello-World
