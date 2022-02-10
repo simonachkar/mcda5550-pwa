@@ -9,7 +9,7 @@
 ## To run this app
 Run `npm run start` to start the app with [`http-server`](https://github.com/http-party/http-server#readme). 
 
-## Directories
+## Directions
 The `finished/` directory has the finished PWA with all the enhancements.
 
 The `start/` directory has the app code minus the PWA code.
