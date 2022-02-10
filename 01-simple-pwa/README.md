@@ -53,7 +53,7 @@ When you add the manifest file – **and you refer it in the HTML**, you can see
 
 *Note that sometimes you'd need to clear the cache to see the change*.
 
-![app manifest, in chrome dev tools](/finished/screenshots/manifest-chrome-dev-tools.png)
+![app manifest, in chrome dev tools](./finished/screenshots/manifest-chrome-dev-tools.png)
 
 You should see your app on your phone like this: 
 
