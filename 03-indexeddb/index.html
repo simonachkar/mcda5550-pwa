@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Intro to IndexedDB</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="manifest" href="/manifest.json">
+</head>
+
+<body>
+    <div class="header">
+        <img src="./smu-icon-96x96.png" width="75px" />
+        <h1>Students List</h1>
+    </div>
+
+    <hr />
+
+    <div>
+        <form>
+            <label for="name">Student Name</label>
+            <input type="text" id="sname" name="sname" placeholder="Student name...">
+
+            <label for="id">Student #</label>
+            <input type="text" id="sid" name="sid" placeholder="Axxxxxx">
+
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" placeholder="Student's city of residence">
+
+            <input type="submit" value="Add Student">
+        </form>
+    </div>
+
+    <hr />
+
+    <div id="students"></div>
+</body>
+
+<script src="/script.js"></script>
+
+</html>
