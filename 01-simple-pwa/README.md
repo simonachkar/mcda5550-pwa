@@ -53,14 +53,14 @@ When you add the manifest file – **and you refer it in the HTML**, you can see
 
 *Note that sometimes you'd need to clear the cache to see the change*.
 
-![app manifest, in chrome dev tools](/screenshots/manifest-chrome-dev-tools.png)
+![app manifest, in chrome dev tools](/finished/screenshots/manifest-chrome-dev-tools.png)
 
 You should see your app on your phone like this: 
 
 <div style="display: flex">
-    <img src="./screenshots/app-screenshot-on-pixel-phone.png" alt="app screenshot on pixel phone" width="250px" />
-    <img src="./screenshots/app-icon-on-home-screen.png" alt="app icon on home screen" width="250px" />
-    <img src="./screenshots/app-screenshot-2-on-pixel-phone.png" alt="app screenshot #2 on pixel phone" width="250px" />
+    <img src="./finished/screenshots/app-screenshot-on-pixel-phone.png" alt="app screenshot on pixel phone" width="250px" />
+    <img src="./finished/screenshots/app-icon-on-home-screen.png" alt="app icon on home screen" width="250px" />
+    <img src="./finished/screenshots/app-screenshot-2-on-pixel-phone.png" alt="app screenshot #2 on pixel phone" width="250px" />
 </div>
 
 ### Safari Support 
