@@ -12,7 +12,7 @@ Create a page containing the following elements:
     a. Task Name
     b. Due Date
     c. Assigned To (The name of the task assignee)
-    *(Bonus: you can have them all as strings, but **+0.5pts** if you can save "Due Date" as a date type)*
+    *(Bonus: now you can have all the values as plain string types, but **+0.5pts** if you can save "Due Date" as a date type)*
 4. A list of all the tasks with its information, you can markdown your tasks like this: 
 ```html
 <h1>Task name</h1>
