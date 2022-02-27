@@ -47,7 +47,7 @@ Check out `01-simple-pwa/finished` for reference.
 ## Rubric
 At the end, you'll have an app similar to the todo app in `02-local-storage` but with extra inputs and data.
 I will grade based on the following: 
-- Todo app is working (2.5 pts)
+- Todo app is working (3.5 pts)
 - Data gets saved correcly to IndexedDB (2.5 pts)
 - The app is PWA (3pts) – App works offline, app has icon, & app is installable (you can check that, by making sure you see the app manifest file inside Chrome Dev Tool) 
 - Bonus point: see above (1 pt)
