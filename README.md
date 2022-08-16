@@ -5,3 +5,4 @@
 3. [Data with IndexedDB](./03-indexeddb)
 - [Tutorial](./tutorial)
 
+_This repo is intended to complement the PWA Lecture given for the "Web, Mobile, and Cloud Application Development" course (MCDA5550) at Saint Mary's University._
