@@ -1,12 +1,16 @@
 // install service worker
 self.addEventListener('install', function (event) {
     event.waitUntil(
-        caches.open('my-cache-name-02')
+        caches.open('my-cache-name-03')
             .then(function (cache) {
                 cache.addAll([
                     '/',
                     '/index.html',
-                    '/script.js'
+                    '/script.js',
+                    '/manifest.json',
+                    '/favicon.ico',
+                    '/smu-icon-96x96.png',
+                    '/smu-icon-192x192.png'
                 ])
             })
     );
