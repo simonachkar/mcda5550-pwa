@@ -1,6 +1,6 @@
 {
-  "name": "A simple PWA for MCDA5550",
-  "short_name": "intro-pwa",
+  "name": "A simple PWA for MCDA5550 - 01-simple-pwa",
+  "short_name": "01-simple-pwa",
   "description": "Creating a PWA is very easy!",
   "start_url": "/",
   "scope": ".",
