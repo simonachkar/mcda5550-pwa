@@ -13,7 +13,10 @@ self.addEventListener('install', function (event) {
                     '/',
                     '/index.html',
                     '/styles.css',
-                    '/script.js'
+                    '/script.js',
+                    '/manifest.json',
+                    '/favicon.ico',
+                    '/smu-icon-192x192.png'
                 ])
             })
     );

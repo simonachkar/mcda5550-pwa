@@ -10,14 +10,15 @@ var courseElements = document.querySelectorAll('.course');
  */
 if ('serviceWorker' in navigator) { // checking if the browser supports service workers
     window.addEventListener('load', function () { // when app loads, fire callback
-        navigator.serviceWorker.register('/sw.js').then(function () { // register sw
-            console.log('ServiceWorker registration successful');  // registration was successful
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).then(function () { // register sw
+            console.log('serviceWorker registration successful');  // registration was successful
         }, function (err) {
-            console.log('ServiceWorker registration failed', err); // registration failed
+            console.log('serviceWorker registration failed', err); // registration failed
         });
     });
 }
 
+// Function that animate components when app first loads
 function animate() {
     title.classList.remove('animate-in');
 
