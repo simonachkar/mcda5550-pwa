@@ -12,6 +12,7 @@ Create a page containing the following elements:
     a. Task Name
     b. Due Date
     c. Assigned To (The name of the task assignee)
+
     *(Bonus: now you can have all the values as plain string types, but **+0.5pts** if you can save "Due Date" as a date type)*
 4. A list of all the tasks with its information, you can markdown your tasks like this: 
 ```html
@@ -36,6 +37,7 @@ Create a table with these elements:
 - `assignedTo`
 
 For how to hook IndexedDB and read/write data to it, check `03-indexeddb/index.html`, line 42-44 , and check the `db.js` file.
+
 *(Bonus: **+0.5pts**, if you can make the `id` auto-incremental, see Dexie documentation)*
 
 Don't forget to import dexie, (see `03-indexeddb/index.html` line 42)
@@ -54,4 +56,6 @@ I will grade based on the following:
 
 ## Misc
 To access the app information in the chrome devtool, right click, then click inspect, then go to the "Application" tab.
+
+Always make sure to clear your storage if you are doing testing, in case you didn't see the updates.
 
