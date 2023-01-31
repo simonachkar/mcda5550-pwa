@@ -1,3 +1,16 @@
+async function registerServiceWorker() {
+    // Register service worker
+    if ('serviceWorker' in navigator) { // checking if the browser supports service workers
+        window.addEventListener('load', function () { // when app loads, fire callback
+            navigator.serviceWorker.register('/sw.js').then(function () { // register sw
+                console.log('ServiceWorker registration successful');  // registration was successful
+            }, function (err) {
+                console.log('ServiceWorker registration failed', err); // registration failed
+            });
+        });
+    }
+}
+
 async function main() {
     const form = document.querySelector('form');
     const name_input = document.querySelector("[name='sname']");
@@ -8,14 +21,13 @@ async function main() {
     // const existingStudents = JSON.parse(localStorage.getItem('students')) || [];
     const existingStudents = await getAllStudentsFromDB()
 
-    console.log(existingStudents)
-
     const studentData = [];
 
-    existingStudents.forEach(student => {
-        addStudent(student.name, student.id, student.city);
-    });
-
+    if (existingStudents) {
+        existingStudents.forEach(student => {
+            addStudent(student.name, student.id, student.city);
+        });
+    }
 
     function addStudent(name, id, city) {
         const div = document.createElement('div')
@@ -48,4 +60,5 @@ async function main() {
     }
 }
 
+registerServiceWorker()
 main()

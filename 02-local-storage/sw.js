@@ -6,17 +6,15 @@ self.addEventListener('install', function (event) {
                 cache.addAll([
                     '/',
                     '/index.html',
-                    '/script.js'
+                    '/script.js',
+                    '/manifest.json',
+                    '/favicon.ico',
+                    '/smu-icon-192x192.png'
                 ])
             })
     );
     return self.clients.claim();
 });
-
-// activat service worker
-self.addEventListener('activate', function (event) {
-    console.log('Service worker activated', event);
-})
 
 // return cached response
 self.addEventListener('fetch', function (event) {

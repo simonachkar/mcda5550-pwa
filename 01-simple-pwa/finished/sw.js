@@ -13,7 +13,10 @@ self.addEventListener('install', function (event) {
                     '/',
                     '/index.html',
                     '/styles.css',
-                    '/script.js'
+                    '/script.js',
+                    '/manifest.json',
+                    '/favicon.ico',
+                    '/smu-icon-192x192.png'
                 ])
             })
     );
@@ -35,6 +38,7 @@ self.addEventListener('fetch', function (event) {
     event.respondWith(
         caches.match(event.request)
             .then(function (res) {
+                console.log('Fetched:', res);
                 return res;
             })
     );

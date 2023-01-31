@@ -10,14 +10,17 @@ db.version(1).stores({
 });
 
 function getAllStudentsFromDB() {
-    return db.students.toArray().then((data) => {
-        return data
-    })
-
+    if (db && db.students) { // check if db and the students table are created
+        return db.students.toArray().then((data) => {
+            return data
+        })
+    } else {
+        return undefined
+    }
 }
 
 function addStudentToDB(name, id, city) {
-    db.students.put({ id, name, city })
+    db.students.put({ name, id, city })
         .then(() => true)
         .catch(err => {
             alert("Ouch... " + err);

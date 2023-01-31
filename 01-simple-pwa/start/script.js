@@ -2,7 +2,8 @@ var title = document.querySelector('.title');
 var courseElements = document.querySelectorAll('.course');
 
 
-// don't foorget to register the service worker
+// TODO: Register the service worker
+
 
 function animate() {
     title.classList.remove('animate-in');

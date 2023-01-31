@@ -1,7 +1,7 @@
 {
   "name": "03-indexeddb",
   "version": "1.0.0",
-  "description": "This section explores local storage, one way of storing data in a PWA>",
+  "description": "This section explores IndexedDB",
   "main": "index.js",
   "scripts": {
     "start": "http-server -c-1 .",
