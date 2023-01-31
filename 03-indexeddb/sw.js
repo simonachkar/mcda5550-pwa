@@ -6,6 +6,9 @@ self.addEventListener('install', function (event) {
                 cache.addAll([
                     '/',
                     '/index.html',
+                    '/styles.css',
+                    'https://unpkg.com/dexie/dist/dexie.js',
+                    '/db.js',
                     '/script.js',
                     '/manifest.json',
                     '/favicon.ico',

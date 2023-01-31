@@ -12,3 +12,5 @@ In this section we are using a wrapper library called [`Dexie.js`](https://dexie
 ## To run this app
 - Run `npm i` or `npm install` to install the node dev dependencies (http-server to run the app on a development server).
 - Run `npm run start` to start the app with [`http-server`](https://github.com/http-party/http-server#readme). 
+
+*Note, when running the app: if you enter two students with the same "Student #", the student data will be overwritten because "Student #" is the set to be the `id`.
