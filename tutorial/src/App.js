@@ -1,9 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Header } from './components/Header';
-import { Form } from './components/Form';
-import { Students } from './components/Students';
+import React from "react";
+import "./App.css";
+import { Header } from "./components/Header";
+import { Form } from "./components/Form";
+import { Students } from "./components/Students";
 
 function App() {
   return (
