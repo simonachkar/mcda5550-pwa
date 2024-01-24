@@ -1,56 +1,20 @@
-var title = document.querySelector('.title');
-var courseElements = document.querySelectorAll('.course');
+/**
+ * This code below animates the components when app first loads.
+ * The function animate() adds animation classes ("animate-in") to elements with a staggered delay.
+ */
 
-
-// TODO: Register the service worker
-
+var title = document.querySelector(".title");
+var courseElements = document.querySelectorAll(".course");
 
 function animate() {
-    title.classList.remove('animate-in');
+  title.classList.remove("animate-in");
+  courseElements.forEach((el) => el.classList.remove("animate-in"));
 
-    for (var i = 0; i < courseElements.length; i++) {
-        courseElements[i].classList.remove('animate-in');
-    }
+  setTimeout(() => title.classList.add("animate-in"), 1000);
 
-    setTimeout(function () {
-        title.classList.add('animate-in');
-    }, 1000);
-
-    setTimeout(function () {
-        courseElements[0].classList.add('animate-in');
-    }, 1500);
-
-    setTimeout(function () {
-        courseElements[1].classList.add('animate-in');
-    }, 2000);
-
-    setTimeout(function () {
-        courseElements[2].classList.add('animate-in');
-    }, 2500);
-
-    setTimeout(function () {
-        courseElements[3].classList.add('animate-in');
-    }, 3000);
-
-    setTimeout(function () {
-        courseElements[4].classList.add('animate-in');
-    }, 3500);
-
-    setTimeout(function () {
-        courseElements[5].classList.add('animate-in');
-    }, 4000);
-
-    setTimeout(function () {
-        courseElements[6].classList.add('animate-in');
-    }, 4500);
-
-    setTimeout(function () {
-        courseElements[7].classList.add('animate-in');
-    }, 5000);
-
-    setTimeout(function () {
-        courseElements[8].classList.add('animate-in');
-    }, 5500);
+  courseElements.forEach((el, index) => {
+    setTimeout(() => el.classList.add("animate-in"), 1500 + index * 500);
+  });
 }
 
 animate();

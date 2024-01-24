@@ -10,6 +10,7 @@ This project demonstrates how to transform a standard web application (HTML/CSS/
 
 - `finish/`: This directory contains the completed PWA with all enhancements implemented.
 - `start/`: This directory contains the basic app HTML/CSS/JS code, excluding the PWA enhancements.
+- `assets/`: This directory contains some screenshots used in this explanation.
 
 ## Getting Started
 
@@ -36,6 +37,46 @@ This command initiates a local web server using the [`http-server`](https://gith
 > `http-server` is an ideal choice for testing and development due to its ease of use and fast setup.
 
 ## Converting to a PWA
+
+### 1. Add a Service Worker file sw.js
+
+1. Create a file named `sw.js` in your project root.
+1. Inside sw.js, you'll write code for caching assets, intercepting network requests, and handling updates.
+1. See an example, [Basic Service Worker Sample](https://googlechrome.github.io/samples/service-worker/basic/).
+
+### 2. Register the Service Worker in `script.js``
+
+You need to register the service worker in your application's JavaScript file, typically `script.js`:
+
+```js
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then((reg) => console.log("Service Worker registered", reg))
+      .catch((err) => console.log("Service Worker registration failed", err));
+  });
+}
+```
+
+### 3. Add Manifest file manifest.json
+
+1. Create a file named `manifest.json`` in your project root.
+1. Include properties such as `name`, `short_name`, `icons`, `start_url`, `display`, `theme_color`, and `background_color`.
+1. Link to the manifest file in the `<head>` of your HTML: `<link rel="manifest" href="/manifest.json">`.
+
+### 4. Add app icons
+
+Icons are used when the PWA is added to a home screen or task switcher. You'll reference these in your manifest file.
+
+1. Add different sizes of your app icon (e.g., 192x192, 512x512 pixels).
+1. Include these icons in your `manifest.json`` and ensure they're accessible on your server.
+
+### 5. Enhance Your HTML with Appropriate Tags for PWA Features
+
+- Add viewport meta tag: `<meta name="viewport" content="width=device-width, initial-scale=1">`.
+- Add theme color meta tag: `<meta name="theme-color" content="#yourColor">` (matches your PWA's theme color).
+- Add other browsers meta tags
 
 ## More Info
 
@@ -71,19 +112,11 @@ Example of a manifest file:
 
 After adding the manifest file and linking it in your HTML, you can inspect it in Chrome Dev Tools under the Application tab. Remember to clear the browser cache if changes are not immediately visible.
 
-![app manifest, in chrome dev tools](./screenshots/manifest-chrome-dev-tools.png)
-
-You should see your app on your phone like this:
-
-<div style="display: flex">
-    <img src="./screenshots/app-screenshot-on-pixel-phone.png" alt="app screenshot on pixel phone" width="250px" />
-    <img src="./screenshots/app-icon-on-home-screen.png" alt="app icon on home screen" width="250px" />
-    <img src="./screenshots/app-screenshot-2-on-pixel-phone.png" alt="app screenshot #2 on pixel phone" width="250px" />
-</div>
+![app manifest, in chrome dev tools](./assets/manifest-chrome-dev-tools.png)
 
 ### Service Workers
 
-- Service Workers only work over `https connections, but localhost is an exception for development.
+- Service Workers only work over `https` connections, but localhost is an exception for development.
 - The `install` event triggers when a new service worker is installed.
 - `activate` event fires when a service worker is activated (to activate a new service worker, you need to close existing tabs)
 
@@ -99,3 +132,13 @@ For compatibility with Safari, include the following `<meta>` tags in your HTML:
 <link type="apple-touch-icon" href="/icons/smu-icon-72x72.png" size="72x72" />
 <!-- Add all required icons -->
 ```
+
+### Preview
+
+You should see your app on your phone like this:
+
+<div style="display: flex">
+    <img src="./assets/app-screenshot-on-pixel-phone.png" alt="app screenshot on pixel phone" width="250px" />
+    <img src="./assets/app-icon-on-home-screen.png" alt="app icon on home screen" width="250px" />
+    <img src="./assets/app-screenshot-2-on-pixel-phone.png" alt="app screenshot #2 on pixel phone" width="250px" />
+</div>
