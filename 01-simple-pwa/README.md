@@ -71,14 +71,14 @@ Example of a manifest file:
 
 After adding the manifest file and linking it in your HTML, you can inspect it in Chrome Dev Tools under the Application tab. Remember to clear the browser cache if changes are not immediately visible.
 
-![app manifest, in chrome dev tools](./finished/screenshots/manifest-chrome-dev-tools.png)
+![app manifest, in chrome dev tools](./screenshots/manifest-chrome-dev-tools.png)
 
 You should see your app on your phone like this:
 
 <div style="display: flex">
-    <img src="./finished/screenshots/app-screenshot-on-pixel-phone.png" alt="app screenshot on pixel phone" width="250px" />
-    <img src="./finished/screenshots/app-icon-on-home-screen.png" alt="app icon on home screen" width="250px" />
-    <img src="./finished/screenshots/app-screenshot-2-on-pixel-phone.png" alt="app screenshot #2 on pixel phone" width="250px" />
+    <img src="./screenshots/app-screenshot-on-pixel-phone.png" alt="app screenshot on pixel phone" width="250px" />
+    <img src="./screenshots/app-icon-on-home-screen.png" alt="app icon on home screen" width="250px" />
+    <img src="./screenshots/app-screenshot-2-on-pixel-phone.png" alt="app screenshot #2 on pixel phone" width="250px" />
 </div>
 
 ### Service Workers
