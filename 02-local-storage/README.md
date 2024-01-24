@@ -1,6 +1,6 @@
 # localStorage
 
-This section explores localStorage, and how to leverage it in a PWA.
+This app explores localStorage, and how to leverage it in a PWA.
 
 ## Getting Started
 
