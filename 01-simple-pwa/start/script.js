@@ -1,5 +1,5 @@
 /**
- * This code below animates the components when app first loads.
+ * This code animates the components when app first loads.
  * The function animate() adds animation classes ("animate-in") to elements with a staggered delay.
  */
 

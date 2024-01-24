@@ -24,9 +24,6 @@ self.addEventListener("install", function (event) {
       ]);
     })
   );
-
-  // Immediately take control of the page, without waiting for reload
-  return self.clients.claim();
 });
 
 /**
@@ -58,8 +55,7 @@ self.addEventListener("activate", function (event) {
 self.addEventListener("fetch", function (event) {
   event.respondWith(
     caches.match(event.request).then(function (res) {
-      console.log("Fetched:", res);
-      return res;
+      return res || fetch(event.request);
     })
   );
 });
