@@ -14,6 +14,8 @@ This app showcases the use of **IndexedDB**, a powerful tool for storing data in
 - Dynamically displays a list of students, allowing users to add new students through a simple form. The student data is immediately saved to IndexedDB and displayed on the page.
 - Uses [`Dexie.js`](https://dexie.org/)for easy and efficient interaction with IndexedDB.
 
+![screenshot of the students app](./assets/screenshot-students.png)
+
 ## Running the Application
 
 1. **Installation**:
