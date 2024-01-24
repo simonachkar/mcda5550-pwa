@@ -21,7 +21,8 @@ Ensure you have Node.js installed on your system to use npm for installing depen
 ### Installation
 
 1. Clone the repository to your local machine.
-1. Navigate to the project directory, then to the app directory (`start/` or `finish/`)
+1. Navigate to the project directory
+1. Navigate to `01-simple-pwa/`, then to the app directory (`start/` or `finish/`)
 1. Run `npm install` to install the necessary Node.js development dependencies.
 
 ### Start the app
