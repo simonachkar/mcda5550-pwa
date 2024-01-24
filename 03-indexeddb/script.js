@@ -1,64 +1,78 @@
 async function registerServiceWorker() {
-    // Register service worker
-    if ('serviceWorker' in navigator) { // checking if the browser supports service workers
-        window.addEventListener('load', function () { // when app loads, fire callback
-            navigator.serviceWorker.register('/sw.js').then(function () { // register sw
-                console.log('ServiceWorker registration successful');  // registration was successful
-            }, function (err) {
-                console.log('ServiceWorker registration failed', err); // registration failed
-            });
-        });
-    }
+  // Register service worker
+  if ("serviceWorker" in navigator) {
+    // checking if the browser supports service workers
+    window.addEventListener("load", function () {
+      // when app loads, fire callback
+      navigator.serviceWorker.register("/sw.js").then(
+        function () {
+          // register sw
+          console.log("ServiceWorker registration successful"); // registration was successful
+        },
+        function (err) {
+          console.log("ServiceWorker registration failed", err); // registration failed
+        }
+      );
+    });
+  }
 }
 
+/**
+ * Main function to handle the student form and display logic.
+ */
 async function main() {
-    const form = document.querySelector('form');
-    const name_input = document.querySelector("[name='sname']");
-    const id_input = document.querySelector("[name='sid']");
-    const city_input = document.querySelector("[name='city']");
-    const studentsList = document.getElementById('students');
+  // Select form and input elements
+  const form = document.querySelector("form");
+  const nameInput = document.querySelector("[name='sname']");
+  const idInput = document.querySelector("[name='sid']");
+  const cityInput = document.querySelector("[name='city']");
+  const studentsList = document.getElementById("students");
 
-    // const existingStudents = JSON.parse(localStorage.getItem('students')) || [];
-    const existingStudents = await getAllStudentsFromDB()
+  // Retrieve existing students from the database
+  const existingStudents = (await getAllStudentsFromDB()) || [];
 
-    const studentData = [];
+  // Store students data locally
+  const studentData = existingStudents.slice();
 
-    if (existingStudents) {
-        existingStudents.forEach(student => {
-            addStudent(student.name, student.id, student.city);
-        });
-    }
+  // Populate initial student list
+  existingStudents.forEach((student) => {
+    addStudent(student.name, student.id, student.city);
+  });
 
-    function addStudent(name, id, city) {
-        const div = document.createElement('div')
-        div.classList.add('student')
-        const h1 = document.createElement('h1')
-        h1.innerHTML = name;
-        const h2 = document.createElement('h2')
-        h2.innerHTML = id;
-        const p = document.createElement('p')
-        p.innerHTML = city;
+  /**
+   * Adds a student to the list and updates the storage.
+   */
+  function addStudent(name, id, city) {
+    // Create student elements
+    const div = document.createElement("div");
+    div.classList.add("student");
+    const h1 = document.createElement("h1");
+    h1.textContent = name;
+    const h2 = document.createElement("h2");
+    h2.textContent = id;
+    const p = document.createElement("p");
+    p.textContent = city;
 
-        studentData.push({ name, id, city });
+    // Append to DOM
+    div.append(h1, h2, p);
+    studentsList.appendChild(div);
 
-        div.appendChild(h1)
-        div.appendChild(h2)
-        div.appendChild(p)
-        studentsList.appendChild(div)
+    // Update storage
+    studentData.push({ name, id, city });
+    localStorage.setItem("students", JSON.stringify(studentData));
+    addStudentToDB(name, id, city); // Assuming addStudentToDB is defined
 
-        localStorage.setItem('students', JSON.stringify(studentData));
-        addStudentToDB(name, id, city)
-        name_input.value = ''
-        id_input.value = ''
-        city_input.value = ''
-    }
+    // Clear input fields
+    [nameInput, idInput, cityInput].forEach((input) => (input.value = ""));
+  }
 
-    // Events
-    form.onsubmit = (event) => {
-        event.preventDefault();
-        addStudent(name_input.value, id_input.value, city_input.value);
-    }
+  // Handle form submission
+  form.onsubmit = (event) => {
+    event.preventDefault();
+    addStudent(nameInput.value, idInput.value, cityInput.value);
+  };
 }
 
-registerServiceWorker()
-main()
+// Initialize service worker and main application logic
+registerServiceWorker();
+main();
