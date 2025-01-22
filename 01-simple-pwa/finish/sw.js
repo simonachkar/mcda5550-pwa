@@ -10,10 +10,12 @@
  * The 'waitUntil' method ensures that the service worker doesn't proceed
  * to the next lifecycle stage until the caching is complete.
  */
-self.addEventListener("install", function (event) {
+self.addEventListener("install", (event) => {
+  const cacheName = "my-cache-v1";
+
   event.waitUntil(
-    caches.open("my-cache-name").then(function (cache) {
-      cache.addAll([
+    caches.open(cacheName).then((cache) => {
+      return cache.addAll([
         "/",
         "/index.html",
         "/styles.css",
@@ -22,6 +24,8 @@ self.addEventListener("install", function (event) {
         "/favicon.ico",
         "/smu-icon-192x192.png",
       ]);
+    }).catch((err) => {
+      console.error("Error during service worker install:", err);
     })
   );
 });
@@ -30,12 +34,27 @@ self.addEventListener("install", function (event) {
  * Service Worker Lifecycle: Activate Event
  *
  * The 'activate' event is fired when the service worker starts.
- * It's an opportunity to clean up from previous service worker versions
- * (e.g., clearing old caches) and to prepare the service worker for handling
- * fetch events or other tasks.
+ * It's an opportunity to clean up old caches, if necessary, and
+ * to prepare the service worker for handling fetch events or other tasks.
  */
-self.addEventListener("activate", function (event) {
-  console.log("Service worker activated", event);
+self.addEventListener("activate", (event) => {
+  const cacheList = ["my-cache-v1"];
+  
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      // Delete old caches that are no longer needed
+      return Promise.all(
+        cacheNames.map((cacheName) => {
+          if (!cacheList.includes(cacheName)) {
+            console.log(`Deleting old cache: ${cacheName}`);
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    }).catch((err) => {
+      console.error("Error during service worker activate:", err);
+    })
+  );
 });
 
 /**
@@ -52,10 +71,12 @@ self.addEventListener("activate", function (event) {
  * The goal is to allow for efficient loading and offline availability
  * of previously accessed resources.
  */
-self.addEventListener("fetch", function (event) {
+self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request).then(function (res) {
-      return res || fetch(event.request);
+    caches.match(event.request).then((cachedResponse) => {
+      return cachedResponse || fetch(event.request)
+    }).catch((error) => {
+      console.error('Fetch error:', error);
     })
   );
 });

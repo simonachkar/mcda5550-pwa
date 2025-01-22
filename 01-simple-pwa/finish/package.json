@@ -1,6 +1,6 @@
 {
   "name": "01-simple-pwa-finish",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "scripts": {
     "start": "http-server -c-1 .",

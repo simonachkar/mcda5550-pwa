@@ -3,8 +3,8 @@
  * The function animate() adds animation classes ("animate-in") to elements with a staggered delay.
  */
 
-var title = document.querySelector(".title");
-var courseElements = document.querySelectorAll(".course");
+const title = document.querySelector(".title");
+const courseElements = document.querySelectorAll(".course");
 
 function animate() {
   title.classList.remove("animate-in");
@@ -19,22 +19,19 @@ function animate() {
 
 animate();
 
+
 /**
  * This code checks to see if the service worker API is available.
  * If yes, we register the service worker at /sw.js once the page is loaded.
  */
 
-if ("serviceWorker" in navigator) {
-  // checking if the browser supports service workers
-  window.addEventListener("load", function () {
-    // when app loads, fire callback
-    navigator.serviceWorker.register("/sw.js", { scope: "/" }).then(
-      function () {
-        console.log("serviceWorker registration successful"); // registration was successful
-      },
-      function (err) {
-        console.log("serviceWorker registration failed", err); // registration failed
-      }
-    );
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', async () => {
+    try {
+      const registration = await navigator.serviceWorker.register('/sw.js');
+      console.log('Service worker registration successful:', registration);
+    } catch (err) {
+      console.error('Service worker registration failed:', err);
+    }
   });
 }

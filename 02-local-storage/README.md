@@ -4,7 +4,7 @@ This app explores localStorage, and how to leverage it in a PWA.
 
 ## Getting Started
 
-### Pre- requisites
+### Pre-requisites
 
 Ensure you have Node.js installed on your system to manage packages and run the development server.
 
