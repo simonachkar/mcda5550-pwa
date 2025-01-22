@@ -1,38 +1,31 @@
-var db = new Dexie("studentsDatabase");
+const db = new Dexie("studentsDatabase");
 
-/**
- * Define the schema for the database.
- * The database has a single table "students" with a primary key "id" and
- * indexes on the properties "name" and "city".
- */
+// Define the schema for the database
 db.version(1).stores({
   students: "id, name, city",
 });
 
-/**
- * Retrieves all student records from the database.
- */
-function getAllStudentsFromDB() {
-  if (db && db.students) {
-    // check if db and the students table are created
-    return db.students.toArray().then((data) => {
-      return data;
-    });
-  } else {
-    return undefined;
+// Fetch all student records from the database
+async function getAllStudentsFromDB() {
+  try {
+    const students = await db.students.toArray();
+    return students;
+  } catch (err) {
+    console.error("Error retrieving students from database:", err);
+    return [];
   }
 }
 
-/**
- * Adds a new student record to the database.
- */
-function addStudentToDB(name, id, city) {
-  db.students
-    .put({ name, id, city })
-    .then(() => true)
-    .catch((err) => {
-      alert("Ouch... " + err);
-    });
+// Add a new student record to the database
+async function addStudentToDB(name, id, city) {
+  try {
+    await db.students.put({ name, id, city });
+    console.log("Student added successfully");
+    return true;
+  } catch (err) {
+    console.error("Error adding student to database:", err);
+    return false;
+  }
 }
 
 /**
@@ -40,11 +33,11 @@ function addStudentToDB(name, id, city) {
  * (Not used in the app, just to showcase Dexie's capabilities)
  */
 async function queryByName(name) {
-  if (name === undefined) return 0;
+  if (name === undefined || name === "") return [];
+
+  const regex = new RegExp(name, "i"); // 'i' for case-insensitive search
   return await db.students
-    .filter((student) => {
-      return student.name === name;
-    })
+    .filter((student) => regex.test(student.name)) // Filter using regex
     .toArray();
 }
 

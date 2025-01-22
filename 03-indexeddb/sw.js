@@ -1,8 +1,21 @@
 // Service Worker Lifecycle: Install Event
 // This event is the first step in the service worker lifecycle. It's used to set up the local environment for the service worker, like caching the necessary assets.
 self.addEventListener("install", function (event) {
+  const cacheName = "cache-indexeddb-app";
+
   event.waitUntil(
-    caches.open("my-cache-name-03").then(function (cache) {
+    caches.keys().then((cacheNames) => {
+      // Delete any caches that don't match the current version
+      return Promise.all(
+        cacheNames.map((name) => {
+          if (name !== cacheName) {
+            console.log(`Deleting outdated cache: ${name}`);
+            return caches.delete(name);
+          }
+        })
+      );
+    }).then(() => {
+    caches.open(cacheName).then(function (cache) {
       return cache.addAll([
         "/",
         "/index.html",
@@ -15,6 +28,7 @@ self.addEventListener("install", function (event) {
         "/smu-icon-192x192.png",
       ]);
     })
+  })
   );
 });
 
