@@ -1,5 +1,5 @@
 {
-  "name": "A simple PWA for MCDA5550 - 01-simple-pwa",
+  "name": "A simple PWA for MCDA5550",
   "short_name": "01-simple-pwa",
   "description": "Creating a PWA is very easy!",
   "start_url": "/",
@@ -19,18 +19,18 @@
   ],
   "screenshots": [
     {
-      "src": "screenshots/wide.png",
-      "sizes": "1224x770",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "MCDA PWA Desktop Screenshot"
-    },
-    {
       "src": "screenshots/narrow.png",
       "sizes": "447x815",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "MCDA PWA Mobile Screenshot"
+    },
+    {
+      "src": "screenshots/wide.png",
+      "sizes": "1224x770",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "MCDA PWA Desktop Screenshot"
     }
   ]
 }

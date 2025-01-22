@@ -3,8 +3,8 @@
  * The function animate() adds animation classes ("animate-in") to elements with a staggered delay.
  */
 
-var title = document.querySelector(".title");
-var courseElements = document.querySelectorAll(".course");
+const title = document.querySelector(".title");
+const courseElements = document.querySelectorAll(".course");
 
 function animate() {
   title.classList.remove("animate-in");
