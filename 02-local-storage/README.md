@@ -1,22 +1,16 @@
-# localStorage
+# localStorage in PWAs
 
-This app explores localStorage, and how to leverage it in a PWA.
+This project explores localStorage and demonstrates how to use it in a Progressive Web App for client-side data persistence.
 
-## Getting Started
+> **localStorage** is a web storage API that allows you to store key-value pairs in a web browser with no expiration date. Data persists even when the browser is closed and reopened, making it ideal for saving user preferences, simple app state, and small amounts of data.
 
-### Pre-requisites
-
-Ensure you have Node.js installed on your system to manage packages and run the development server.
-
-### Installation
-
-1. Clone this repository or download the source code.
-1. Navigate to the project directory, then to `02-local-storage/`
-1. Run `npm install`
+![screenshot of the todos app](./assets/screenshot-todos.png)
 
 ### Start the app
 
 Run `npm run start` to start the application using `http-server`.
+
+The app will be available at `http://localhost:8080`
 
 ## Todos Application Features
 
