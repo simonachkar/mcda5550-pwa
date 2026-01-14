@@ -1,11 +1,10 @@
 async function registerServiceWorker() {
-  // Register service worker if supported
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function () {
       navigator.serviceWorker
-        .register("/sw.js")
-        .then(() => console.log("ServiceWorker registration successful"))
-        .catch((err) => console.log("ServiceWorker registration failed", err));
+        .register("./sw.js")
+        .then((reg) => console.log("✅ ServiceWorker registered", reg))
+        .catch((err) => console.error("❌ ServiceWorker registration failed:", err));
     });
   }
 }
