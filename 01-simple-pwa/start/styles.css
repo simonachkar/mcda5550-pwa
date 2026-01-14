@@ -5,6 +5,7 @@ html {
     text-align: center;
 }
 
+/* Initially hide title and courses for animation */
 .title,
 .course {
     opacity: 0;
@@ -70,10 +71,12 @@ html {
     background-color: #e76f51;
 }
 
+/* Animation class added by JS */
 .animate-in {
     animation: fade 1.5s forwards;
 }
 
+/* Fade in animation: starts invisible and below, ends visible at normal position */
 @keyframes fade {
     0% {
         opacity: 0;

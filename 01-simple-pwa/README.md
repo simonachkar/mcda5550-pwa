@@ -45,7 +45,7 @@ This command initiates a local web server using the [`http-server`](https://gith
 1. Inside sw.js, you'll write code for caching assets, intercepting network requests, and handling updates.
 1. See an example, [Basic Service Worker Sample](https://googlechrome.github.io/samples/service-worker/basic/).
 
-### 2. Register the Service Worker in `script.js``
+### 2. Register the Service Worker in `script.js`
 
 You need to register the service worker in your application's JavaScript file, typically `script.js`:
 
@@ -53,7 +53,7 @@ You need to register the service worker in your application's JavaScript file, t
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register("/sw.js")
+      .register("./sw.js")
       .then((reg) => console.log("Service Worker registered", reg))
       .catch((err) => console.log("Service Worker registration failed", err));
   });
@@ -62,16 +62,16 @@ if ("serviceWorker" in navigator) {
 
 ### 3. Add Manifest file manifest.json
 
-1. Create a file named `manifest.json`` in your project root.
+1. Create a file named `manifest.json` in your project root.
 1. Include properties such as `name`, `short_name`, `icons`, `start_url`, `display`, `theme_color`, and `background_color`.
-1. Link to the manifest file in the `<head>` of your HTML: `<link rel="manifest" href="/manifest.json">`.
+1. Link to the manifest file in the `<head>` of your HTML: `<link rel="manifest" href="./manifest.json">` (use relative path).
 
 ### 4. Add app icons
 
 Icons are used when the PWA is added to a home screen or task switcher. You'll reference these in your manifest file.
 
 1. Add different sizes of your app icon (e.g., 192x192, 512x512 pixels).
-1. Include these icons in your `manifest.json`` and ensure they're accessible on your server.
+1. Include these icons in your `manifest.json` and ensure they're accessible on your server.
 
 ### 5. Enhance Your HTML with Appropriate Tags for PWA Features
 
