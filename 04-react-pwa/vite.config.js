@@ -8,8 +8,12 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
+      devOptions: {
+        enabled: true
+      },
       workbox: {
-        globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
+        globPatterns: ['**/*.{js,jsx,css,html,ico,png,svg,jpg,jpeg,gif,woff,woff2}'],
+        cleanupOutdatedCaches: true,
       },
       manifest: {
         name: "PWA with React",
